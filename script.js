@@ -41,3 +41,20 @@ function lgInRetry() {
   console.log("Gå tillbaka till första sidan...");
   return;
 }
+
+mainButton.addEventListener("click", function lgIn() {
+  name = lginName.value;
+  password = lginPassword.value;
+
+  if (mainButton.innerText === "Försök igen") {
+    lgInRetry();
+  }
+  if (mainButton.innerText === "Logga ut") {
+    lgOutPage();
+  }
+  if (name === userName && password === userPassword) {
+    lgInPage();
+  } else {
+    lgInFail();
+  }
+});
