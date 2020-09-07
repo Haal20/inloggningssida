@@ -6,20 +6,31 @@
     <title>Logga in hos Alma</title>
   </head>
   <body>
-    <input
-      type="text"
-      id="lginNamn"
-      onfocus="value"
-      placeholder="Inloggningsnamn..."
-    />
-    <input
-      type="text"
-      id="lginPassword"
-      onfocus="value"
-      placeholder="Lösenord..."
-    />
-    <button id="lginButton">Logga in</button>
-
+    <div>
+      <h1 id="main-header">Logga in</h1>
+    </div>
+    <div id="main-body">
+      <fieldset>
+        <legend>Logga in:</legend>
+        <label for="name">Användarnamn:</label>
+        <input
+          id="lginName"
+          onfocus="value=''"
+          type="text"
+          placeholder="Skriv användarnamn..."
+        />
+        <label for="password">Lösenord:</label>
+        <input
+          id="lginPassword"
+          onfocus="value=''"
+          type="text"
+          placeholder="Skriv lösenord..."
+        />
+      </fieldset>
+      <div>
+        <button id="main-button">Logga in</button>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
