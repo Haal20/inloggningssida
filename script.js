@@ -1,7 +1,7 @@
 console.log("Hej Världen!");
 
 //skapar variabler till mina objekt på DOM
-let lginNamn = document.getElementById("lginNamn");
+let lginName = document.getElementById("lginName");
 let lginPassword = document.getElementById("lginPassword");
 let mainButton = document.getElementById("main-button");
 let mainHeader = document.getElementById("main-header");
@@ -10,18 +10,15 @@ let mainBody = document.getElementById("main-body");
 const userName = "test";
 const userPassword = "1234";
 
-mainButton.addEventListener("click", function lgInlgOut() {
-  /*
-    if (lginName.value === "test" && lginPassword.value === "1234") {
-        logga in mig
-    }
-    if (lginName.value !== "test" || lginPassword.value !== "1234") {
-        skriv ut "Felaktigt lösenord eller användarnamn... försök igen"
-    } 
-    if (i) {
+mainButton.addEventListener("click", function lgIn() {
+  name = lginName.value;
+  password = lginPassword.value;
 
-    } else {
-        skriv ut att det blev något fel på sidan
-    }
-*/
+  if (name === userName && password === userPassword) {
+    console.log(name + " is logged in!!!");
+    return;
+  } else {
+    console.log("Fel användarnamn eller lösenord. Försök igen...");
+    return;
+  }
 });
