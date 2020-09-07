@@ -37,24 +37,31 @@ function lgInFail() {
 }
 
 function lgInRetry() {
-  //
+  //När jag vill försöka skriva lösenordet igen
   console.log("Gå tillbaka till första sidan...");
   return;
 }
 
+//addEvent Listener på min knapp som tar mig till de olika sidorna
 mainButton.addEventListener("click", function lgIn() {
+  //Läser in användarens input
   name = lginName.value;
   password = lginPassword.value;
 
+  //olika vägar beroende på input
   if (mainButton.innerText === "Försök igen") {
+    //om man skriver fel lösen eller och vill försöka igen
     lgInRetry();
   }
   if (mainButton.innerText === "Logga ut") {
+    //on man vill logga ut från sidan
     lgOutPage();
   }
   if (name === userName && password === userPassword) {
+    //om man skriver rätt lösenord
     lgInPage();
   } else {
+    //om man skriver fel lösenord
     lgInFail();
   }
 });
