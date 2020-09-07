@@ -10,23 +10,20 @@
       <h1 id="main-header">Logga in</h1>
     </div>
     <div id="main-body">
-      <fieldset>
-        <legend>Logga in:</legend>
-        <label for="name">Användarnamn:</label>
-        <input
-          id="lginName"
-          onfocus="value=''"
-          type="text"
-          placeholder="Skriv användarnamn..."
-        />
-        <label for="password">Lösenord:</label>
-        <input
-          id="lginPassword"
-          onfocus="value=''"
-          type="text"
-          placeholder="Skriv lösenord..."
-        />
-      </fieldset>
+      <label for="name">Användarnamn:</label>
+      <input
+        id="lginName"
+        onfocus="this.Value=''"
+        type="text"
+        placeholder="Skriv användarnamn..."
+      />
+      <label for="password">Lösenord:</label>
+      <input
+        id="lginPassword"
+        onfocus="this.Value=''"
+        type="text"
+        placeholder="Skriv lösenord..."
+      />
       <div>
         <button id="main-button">Logga in</button>
       </div>
