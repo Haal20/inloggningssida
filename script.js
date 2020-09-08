@@ -3,12 +3,12 @@ console.log("Hej Världen!");
 //skapar två input element
 let loginName = document.createElement("input");
 let loginPassword = document.createElement("input");
-//skapar input elementens attribut
+//skapar input elements attribut användarnamn
 loginName.setAttribute("id", "loginName");
 loginName.setAttribute("onfocus", "this.value=''");
 loginName.setAttribute("type", "text");
 loginName.setAttribute("placeholder", "Skriv användarnamn...");
-//Skapar input elements attribut 2
+//Skapar input elements attribut lösenord
 loginPassword.setAttribute("id", "loginPassword");
 loginPassword.setAttribute("onfocus", "this.value=''");
 loginPassword.setAttribute("type", "text");
@@ -20,11 +20,12 @@ let mainHeader = document.getElementById("main-header");
 let mainBody = document.getElementById("main-body");
 let btnMessage = document.getElementById("btn-message");
 
+//hårdkokade variabler
+let userName = "test";
+let userPassword = "1234";
+
 //skapar funktioner till inloggningssidan
 function welcomePage() {
-  //skapar två hårdkodade variabler som aggerar användarnamn och lösenord
-  //skapa användare i localStorage
-  //addToLocalStorage(userName, userPassword);
   //skapa sidan som inloggad
   mainHeader.innerHTML = "Välkommen " + userName + "!";
   mainBody.innerHTML = "Detta är min coola sida";
@@ -36,11 +37,11 @@ function welcomePage() {
 function logInPage() {
   //skapa inloggningssidan igen
   mainHeader.innerHTML = "Logga in!";
+  mainBody.innerHTML = "";
   mainBody.appendChild(loginName);
   mainBody.appendChild(loginPassword);
   mainButton.innerHTML = "Logga in";
   btnMessage.innerHTML = " ";
-  console.log("Gå tillbaka till första sidan...");
   return;
 }
 
@@ -53,16 +54,12 @@ function errorPage() {
   return;
 }
 
+logInPage();
 //addEvent Listener på min knapp som tar mig till de olika sidorna
-mainButton.addEventListener("click", function logIn() {
-  //skapar två hårdkodade variabler som aggerar användarnamn och lösenord
-  const userName = "test";
-  const userPassword = "1234";
+mainButton.addEventListener("click", function () {
   //Läser in användarens input
-  name = loginName.value;
-  password = loginPassword.value;
-
-  console.log("Syns jag här?");
+  let name = loginName.value;
+  let password = loginPassword.value;
 
   if (mainButton.innerHTML === "Försök igen") {
     //tar en till första sidan från Error sidan
@@ -74,14 +71,12 @@ mainButton.addEventListener("click", function logIn() {
     logInPage();
     return;
   }
-  if (mainButton === "Logga in") {
-    console.log("Syns jag här?  if()");
-
-    //om man skriver rätt lösenord
-    if (name === userName && password === userPassword) {
-      welcomePage();
-      return;
-    }
+  if (
+    mainButton.innerHTML === "Logga in" &&
+    name === userName &&
+    password === userPassword
+  ) {
+    welcomePage();
   } else {
     //Om man skriver fel inlogg
     errorPage();
