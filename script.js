@@ -4,41 +4,50 @@ console.log("Hej Världen!");
 let lginName = document.getElementById("lginName");
 let lginPassword = document.getElementById("lginPassword");
 let mainButton = document.getElementById("main-button");
-let mainHeadline = document.getElementById("headline");
+let mainHeader = document.getElementById("main-header");
 let mainBody = document.getElementById("main-body");
+let btnMessage = document.getElementById("btn-message");
 //skapar två hårdkodade variabler som aggerar användarnamn och lösenord
 const userName = "test";
 const userPassword = "1234";
 
 //skapar funktioner till inloggningssidan
 function lgInPage() {
-  //Logga in
-  mainHeadline.innerHTML = "Välkommen!";
+  //skapa användare i localStorage
+  //addToLocalStorage(userName, userPassword);
+  //skapa sidan som inloggad
+  mainHeader.innerHTML = "Välkommen " + userName + "!";
   mainBody.innerHTML = "Detta är min coola sida";
   mainButton.innerHTML = "Logga ut";
-  document.getElementById("btn-message").innerHTML = "Du är inloggad!";
-  console.log(mainHeadline.innerHTML);
+  btnMessage.innerHTML = "Du är inloggad!";
   return;
 }
 
 function lgOutPage() {
-  //logga ut från sida
+  //rensaLocalStorage
+  //localStorage.clear();
+  //skapa inloggningssidan igen
+  mainHeader.innerHTML = "Logga in!";
+  mainBody.innerHTML = `
+  <input type="text" class="user-name" id="user-name" placeholder="Username">
+  <input type="password" class="pass-word" id="pass-word" placeholder="Password">
+  `;
+  mainButton.innerHTML = "Logga in";
   console.log("Gå tillbaka till första sidan...");
   return;
 }
 
 function lgInFail() {
-  //om man skriver fel inlogg eller lösen
-  mainHeadline.innerHTML = "Oj!";
+  //skapar en error sida
+  mainHeader.innerHTML = "Oj!";
   mainBody.innerHTML = "...";
   mainButton.innerHTML = "Försök igen";
-  document.getElementById("btn-message").innerText =
-    "Fel användarnamn eller lösenord...";
+  btnMessage.innerText = "Fel användarnamn eller lösenord...";
   return;
 }
 
 function lgInRetry() {
-  //När jag vill försöka skriva lösenordet igen
+  //skapa inloggningssidan igen
   console.log("Gå tillbaka till första sidan...");
   return;
 }
