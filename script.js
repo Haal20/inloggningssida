@@ -29,8 +29,8 @@ function lgOutPage() {
   //skapa inloggningssidan igen
   mainHeader.innerHTML = "Logga in!";
   mainBody.innerHTML = `
-  <input type="text" class="user-name" id="user-name" placeholder="Username">
-  <input type="password" class="pass-word" id="pass-word" placeholder="Password">
+  <input id="lginName" onfocus="this.Value=''" type="text" placeholder="Skriv användarnamn...">
+  <input id="lginPassword" onfocus="this.Value=''" type="text" placeholder="Skriv lösenord...">
   `;
   mainButton.innerHTML = "Logga in";
   console.log("Gå tillbaka till första sidan...");
