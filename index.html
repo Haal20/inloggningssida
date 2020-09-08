@@ -4,12 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Logga in hos Alma</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
-    <div>
-      <h1 id="main-header">Logga in</h1>
-    </div>
+    <header id="main-header">
+      <h1>Almas sida!</h1>
+    </header>
     <div id="main-body">
+      <h2 id="headline">Logga in</h2>
       <label for="name">Användarnamn:</label>
       <input
         id="lginName"
@@ -27,9 +29,13 @@
     </div>
     <br />
     <div>
-      <h2 id="lginFail"></h2>
+      <h2 id="btn-message"></h2>
       <button id="main-button">Logga in</button>
     </div>
+    <br />
+    <footer id="main-footer">
+      <p>Copyright &copy; 2020, Alma</p>
+    </footer>
 
     <script src="script.js"></script>
   </body>
