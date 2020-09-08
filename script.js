@@ -4,7 +4,7 @@ console.log("Hej Världen!");
 let lginName = document.getElementById("lginName");
 let lginPassword = document.getElementById("lginPassword");
 let mainButton = document.getElementById("main-button");
-let mainHeader = document.getElementById("main-header");
+let mainHeadline = document.getElementById("headline");
 let mainBody = document.getElementById("main-body");
 //skapar två hårdkodade variabler som aggerar användarnamn och lösenord
 const userName = "test";
@@ -13,10 +13,11 @@ const userPassword = "1234";
 //skapar funktioner till inloggningssidan
 function lgInPage() {
   //Logga in
-  mainHeader.innerHTML = "Välkommen!";
+  mainHeadline.innerHTML = "Välkommen!";
   mainBody.innerHTML = "Detta är min coola sida";
   mainButton.innerHTML = "Logga ut";
-  document.getElementById("lginFail").innerHTML = "Du är inloggad!";
+  document.getElementById("btn-message").innerHTML = "Du är inloggad!";
+  console.log(mainHeadline.innerHTML);
   return;
 }
 
@@ -28,10 +29,10 @@ function lgOutPage() {
 
 function lgInFail() {
   //om man skriver fel inlogg eller lösen
-  mainHeader.innerHTML = "Oj!";
+  mainHeadline.innerHTML = "Oj!";
   mainBody.innerHTML = "...";
   mainButton.innerHTML = "Försök igen";
-  document.getElementById("lginFail").innerText =
+  document.getElementById("btn-message").innerText =
     "Fel användarnamn eller lösenord...";
   return;
 }
