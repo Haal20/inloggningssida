@@ -54,7 +54,17 @@ function errorPage() {
   return;
 }
 
-logInPage();
+function welcomeORLogin() {
+  //testa om personen redan är inloggad eller inte
+  if (localStorage.length === 0) {
+    logInPage();
+  } else {
+    welcomePage();
+  }
+}
+
+//bestämmer förstasidan
+welcomeORLogin();
 //addEvent Listener på min knapp som tar mig till de olika sidorna
 mainButton.addEventListener("click", function () {
   //Läser in användarens input
@@ -67,6 +77,8 @@ mainButton.addEventListener("click", function () {
     return;
   }
   if (mainButton.innerHTML === "Logga ut") {
+    //rensa localStorage
+    localStorage.clear();
     //Tar en till första sidan från logga in sidan
     logInPage();
     return;
@@ -76,7 +88,11 @@ mainButton.addEventListener("click", function () {
     name === userName &&
     password === userPassword
   ) {
+    //spara inloggad användare i localStorage
+    localStorage.setItem("userName", name);
+    localStorage.setItem("userPassword", password);
     welcomePage();
+    return;
   } else {
     //Om man skriver fel inlogg
     errorPage();
