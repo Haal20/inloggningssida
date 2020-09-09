@@ -35,8 +35,6 @@ function welcomePage() {
 }
 
 function logInPage() {
-  //rensa localStorage
-  localStorage.clear();
   //skapa inloggningssidan igen
   mainHeader.innerHTML = "Logga in!";
   mainBody.innerHTML = "";
@@ -69,6 +67,8 @@ mainButton.addEventListener("click", function () {
     return;
   }
   if (mainButton.innerHTML === "Logga ut") {
+    //rensa localStorage
+    localStorage.clear();
     //Tar en till första sidan från logga in sidan
     logInPage();
     return;
