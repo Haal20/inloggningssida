@@ -35,6 +35,8 @@ function welcomePage() {
 }
 
 function logInPage() {
+  //rensa localStorage
+  localStorage.clear();
   //skapa inloggningssidan igen
   mainHeader.innerHTML = "Logga in!";
   mainBody.innerHTML = "";
@@ -76,7 +78,11 @@ mainButton.addEventListener("click", function () {
     name === userName &&
     password === userPassword
   ) {
+    //spara inloggad användare i localStorage
+    localStorage.setItem("userName", name);
+    localStorage.setItem("userPassword", password);
     welcomePage();
+    return;
   } else {
     //Om man skriver fel inlogg
     errorPage();
