@@ -54,7 +54,17 @@ function errorPage() {
   return;
 }
 
-logInPage();
+function welcomeORLogin() {
+  //testa om personen redan är inloggad eller inte
+  if (localStorage.length === 0) {
+    logInPage();
+  } else {
+    welcomePage();
+  }
+}
+
+//bestämmer förstasidan
+welcomeORLogin();
 //addEvent Listener på min knapp som tar mig till de olika sidorna
 mainButton.addEventListener("click", function () {
   //Läser in användarens input
