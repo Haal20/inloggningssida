@@ -3,16 +3,19 @@ console.log("Hej Världen!");
 //skapar två input element
 let loginName = document.createElement("input");
 let loginPassword = document.createElement("input");
-//skapar input elements attribut
-loginName.setAttribute("id", "loginName");
-loginName.setAttribute("onfocus", "this.value=''");
-loginName.setAttribute("type", "text");
-loginName.setAttribute("placeholder", "Skriv användarnamn...");
-//Skapar input elements attribut lösenord
-loginPassword.setAttribute("id", "loginPassword");
-loginPassword.setAttribute("onfocus", "this.value=''");
-loginPassword.setAttribute("type", "text");
-loginPassword.setAttribute("placeholder", "Skriv lösenord...");
+//skapar input elements attribut. användarnamn & lösenord
+Object.assign(loginName, {
+  id: "lginName",
+  onfocus: "this.value=''",
+  type: "text",
+  placeholder: "Skriv användarnamn...",
+});
+Object.assign(loginPassword, {
+  id: "lginPassword",
+  onfocus: "this.value=''",
+  type: "text",
+  placeholder: "Skriv lösenord...",
+});
 
 //skapar variabler till mina objekt på DOM
 let mainButton = document.getElementById("main-button");
