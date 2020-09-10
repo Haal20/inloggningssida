@@ -20,39 +20,9 @@ let mainHeader = document.getElementById("main-header");
 let mainBody = document.getElementById("main-body");
 let btnMessage = document.getElementById("btn-message");
 
-//hårdkokade variabler
+//hårdkodade variabler
 let userName = "test";
 let userPassword = "1234";
-
-//skapar funktioner till inloggningssidan
-function welcomePage() {
-  //skapa sidan som inloggad
-  mainHeader.innerHTML = "Välkommen " + userName + "!";
-  mainBody.innerHTML = "Detta är min coola sida";
-  mainButton.innerHTML = "Logga ut";
-  btnMessage.innerHTML = "Du är inloggad!";
-  return;
-}
-
-function logInPage() {
-  //skapa inloggningssidan igen
-  mainHeader.innerHTML = "Logga in!";
-  mainBody.innerHTML = "";
-  mainBody.appendChild(loginName);
-  mainBody.appendChild(loginPassword);
-  mainButton.innerHTML = "Logga in";
-  btnMessage.innerHTML = " ";
-  return;
-}
-
-function errorPage() {
-  //skapar en error sida
-  mainHeader.innerHTML = "Oj!";
-  mainBody.innerHTML = "";
-  mainButton.innerHTML = "Försök igen";
-  btnMessage.innerText = "Fel användarnamn eller lösenord...";
-  return;
-}
 
 function welcomeORLogin() {
   //testa om personen redan är inloggad eller inte
@@ -63,27 +33,57 @@ function welcomeORLogin() {
   }
 }
 
+function welcomePage() {
+  //skapa välomst-vyn
+  mainHeader.innerHTML = "Välkommen " + userName + "!";
+  mainBody.innerHTML = "Detta är min coola sida";
+  mainButton.innerHTML = "Logga ut";
+  btnMessage.innerHTML = "Du är inloggad!";
+  return;
+}
+
+function logInPage() {
+  //skapa inloggnings-vyn
+  mainHeader.innerHTML = "Logga in!";
+  mainBody.innerHTML = "";
+  mainBody.appendChild(loginName);
+  mainBody.appendChild(loginPassword);
+  mainButton.innerHTML = "Logga in";
+  btnMessage.innerHTML = " ";
+  return;
+}
+
+function errorPage() {
+  //skapar en error-vyn
+  mainHeader.innerHTML = "Oj!";
+  mainBody.innerHTML = "";
+  mainButton.innerHTML = "Försök igen";
+  btnMessage.innerText = "Fel användarnamn eller lösenord...";
+  return;
+}
+
 //bestämmer förstasidan
 welcomeORLogin();
-//addEvent Listener på min knapp som tar mig till de olika sidorna
+//addEventListener som tar mig till de olika sidorna
 mainButton.addEventListener("click", function () {
-  //Läser in användarens input
+  //gör variabler av användarens input
   let name = loginName.value;
   let password = loginPassword.value;
 
   if (mainButton.innerHTML === "Försök igen") {
-    //tar en till första sidan från Error sidan
+    //tar en till inloggnings-vyn från Error-vyn
     logInPage();
     return;
   }
   if (mainButton.innerHTML === "Logga ut") {
-    //rensa localStorage
+    //rensar localStorage
     localStorage.clear();
-    //Tar en till första sidan från logga in sidan
+    //Tar en till inloggnings-vyn från välkomst-vyn
     logInPage();
     return;
   }
   if (
+    //tar en till välkomst-vyn OM användarnamn och lösenord är correkt
     mainButton.innerHTML === "Logga in" &&
     name === userName &&
     password === userPassword
@@ -94,7 +94,7 @@ mainButton.addEventListener("click", function () {
     welcomePage();
     return;
   } else {
-    //Om man skriver fel inlogg
+    //tar en till error-vyn
     errorPage();
   }
 });
