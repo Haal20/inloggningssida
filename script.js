@@ -3,7 +3,7 @@ console.log("Hej Världen!");
 //skapar två input element
 let loginName = document.createElement("input");
 let loginPassword = document.createElement("input");
-//skapar input elements attribut användarnamn
+//skapar input elements attribut
 loginName.setAttribute("id", "loginName");
 loginName.setAttribute("onfocus", "this.value=''");
 loginName.setAttribute("type", "text");
